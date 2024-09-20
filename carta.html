@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0e6f6;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card-container {
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .card.closed {
+            transform: rotateY(0);
+        }
+
+        .card.opened {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .card-front {
+            background-color: #f9d3eb;
+            text-align: center;
+        }
+
+        .card-front p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-front img {
+            width: 80px;
+        }
+
+        .card-back {
+            background-color: #fff;
+            transform: rotateY(180deg);
+            padding: 20px;
+            font-size: 16px;
+            color: #444;
+            text-align: center;
+        }
+
+        .card-back .message {
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: rgba(249, 211, 235, 0.8); /* Fondo detrás del texto */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra adicional */
+            border: 1px solid #f9d3eb; /* Borde suave alrededor del cuadro */
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para mi Novia</title>
+</head>
+<body>
+    <div class="card-container">
+        <div id="card" class="card closed">
+            <div class="card-front">
+                <p>Haz clic para abrir la carta</p>
+                <img src="img/descarga.png" alt="Carta cerrada">
+            </div>
+            <div class="card-back">
+                <p class="message">Mi Niña preciosa,<br><br>
+                    Mi amor hermoso, sé que te lo digo siempre, pero en serio, tus ojos me encantan. Quizás el brillo al verme, no lo sé, pero algo tienen que me fascina. Tu presencia llena mi vida de paz. Al estar contigo, me das una tranquilidad que solo contigo he experimentado. <br><br>
+                    Perdóname cuando no sé cómo tomar las cosas y muchas veces la embarro por cómo pienso o reacciono. Solo quiero cuidar a esa niña, a esa mujer hermosa que siempre has sido. Sabes que estaría dispuesto a hacer cualquier cosa por ti, mi niña. Te estoy entregando mi corazón para que lo cuides y lo ames como yo te amo. <br><br>
+                    Con todo mi amor,<br>
+                    Tu bebé</p>
+            </div>
+        </div>
+    </div>
+
+    <script> 
+    document.getElementById('card').addEventListener('click', function() {
+    const card = document.getElementById('card');
+    card.classList.toggle('opened');
+});
+    </script>
+</body>
+</html>
